@@ -21,7 +21,7 @@ export function CreateApprovalRulesSheet() {
   const [policyLevel, setPolicyLevel] = useState("default-policy");
   const [secondaryPolicyLevel, setSecondaryPolicyLevel] = useState("");
   const [assignmentScope, setAssignmentScope] = useState("by-user");
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
   const [newUser, setNewUser] = useState("");
   const [travelerType, setTravelerType] = useState("");
   const [travelRequestType, setTravelRequestType] = useState("");
@@ -35,7 +35,7 @@ export function CreateApprovalRulesSheet() {
     }
   };
 
-  const handleRemoveUser = (userToRemove) => {
+  const handleRemoveUser = (userToRemove: string) => {
     setSelectedUsers(selectedUsers.filter(user => user !== userToRemove));
   };
 

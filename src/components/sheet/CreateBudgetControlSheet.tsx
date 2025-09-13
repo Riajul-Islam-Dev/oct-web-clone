@@ -34,7 +34,7 @@ export function CreateBudgetControlSheet({ onOpenChange }: CreateBudgetControlSh
   const [percentage, setPercentage] = useState("");
   const [maxAmount, setMaxAmount] = useState("");
   const [assignmentScope, setAssignmentScope] = useState("attribute");
-  const [selectedUsers, setSelectedUsers] = useState([]);
+  const [selectedUsers, setSelectedUsers] = useState<string[]>([]);
   const [newUser, setNewUser] = useState("");
   const [seatsLimit, setSeatsLimit] = useState("limited");
   const [numberOfTravelers, setNumberOfTravelers] = useState("");
@@ -46,6 +46,14 @@ export function CreateBudgetControlSheet({ onOpenChange }: CreateBudgetControlSh
 
   const removeUser = (userToRemove: string) => {
     setSelectedUsers(selectedUsers.filter(user => user !== userToRemove));
+  };
+
+  const handleShortPolicyChange = (checked: boolean | "indeterminate") => {
+    setShortPolicy(checked === true);
+  };
+
+  const handleLongPolicyChange = (checked: boolean | "indeterminate") => {
+    setLongPolicy(checked === true);
   };
 
   const addUser = () => {
@@ -189,7 +197,7 @@ export function CreateBudgetControlSheet({ onOpenChange }: CreateBudgetControlSh
                 <Checkbox
                   id="short"
                   checked={shortPolicy}
-                  onCheckedChange={setShortPolicy}
+                  onCheckedChange={handleShortPolicyChange}
                   className="mt-1 border-[#316db4] data-[state=checked]:bg-[#316db4]"
                 />
                 <div>
@@ -203,7 +211,7 @@ export function CreateBudgetControlSheet({ onOpenChange }: CreateBudgetControlSh
                 <Checkbox
                   id="long"
                   checked={longPolicy}
-                  onCheckedChange={setLongPolicy}
+                  onCheckedChange={handleLongPolicyChange}
                   className="mt-1 border-[#b4b4b4]"
                 />
                 <div>
