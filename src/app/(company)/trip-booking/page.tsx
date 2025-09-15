@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export default function TripBookingPage() {
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("upcoming");
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
@@ -72,9 +73,36 @@ export default function TripBookingPage() {
       {/* Filter Tabs */}
       <div className="flex items-center justify-between px-6 py-4 bg-[#ffffff] border-b border-[#e2e8f0]">
           <div className="flex items-center gap-8">
-            <button className="text-[#316db4] font-medium text-sm border-b-2 border-[#316db4] pb-3">Upcoming</button>
-            <button className="text-[#64748b] font-medium text-sm pb-3 hover:text-[#316db4]">Past</button>
-            <button className="text-[#64748b] font-medium text-sm pb-3 hover:text-[#316db4]">Canceled</button>
+            <button 
+              onClick={() => setActiveTab("upcoming")}
+              className={`font-medium text-sm pb-3 ${
+                activeTab === "upcoming" 
+                  ? "text-[#316db4] border-b-2 border-[#316db4]" 
+                  : "text-[#64748b] hover:text-[#316db4]"
+              }`}
+            >
+              Upcoming
+            </button>
+            <button 
+              onClick={() => setActiveTab("past")}
+              className={`font-medium text-sm pb-3 ${
+                activeTab === "past" 
+                  ? "text-[#316db4] border-b-2 border-[#316db4]" 
+                  : "text-[#64748b] hover:text-[#316db4]"
+              }`}
+            >
+              Past
+            </button>
+            <button 
+              onClick={() => setActiveTab("canceled")}
+              className={`font-medium text-sm pb-3 ${
+                activeTab === "canceled" 
+                  ? "text-[#316db4] border-b-2 border-[#316db4]" 
+                  : "text-[#64748b] hover:text-[#316db4]"
+              }`}
+            >
+              Canceled
+            </button>
           </div>
 
           <div className="flex items-center gap-3">
@@ -93,8 +121,9 @@ export default function TripBookingPage() {
           </div>
       </div>
 
-      {/* Main Content Area - Empty State */}
+      {/* Main Content Area */}
       <div className="flex-1 bg-[#fafafa]">
+        {activeTab === "upcoming" && (
           <div className="flex flex-col items-center justify-center min-h-[600px] px-6">
             <div className="mb-12">
               <div className="relative">
@@ -138,12 +167,230 @@ export default function TripBookingPage() {
               variant="outline"
               className="bg-[#fdf6e9] border-[#fdf6e9] text-[#8e8e8e] hover:bg-[#fdf6e9]/90 px-6 py-2 text-sm font-medium"
             >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2">
-                <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-              </svg>
+              <Plus className="mr-2 h-4 w-4" />
               Add New Trip
             </Button>
           </div>
+        )}
+
+        {activeTab === "past" && (
+          <div className="p-6">
+            <div className="grid gap-6">
+              {/* New York Trip Card */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="flex">
+                  <div className="w-80 h-48">
+                    <Image
+                      src="/banner-1.jpg"
+                      alt="New York Trip"
+                      width={320}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Business</span>
+                          <span className="text-gray-500 text-sm">Trip ID: TRP920240455</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-500 text-sm mb-3">
+                          <Calendar className="w-4 h-4" />
+                          <span>Jul 14 - Jul 18</span>
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4">New York Trip</h3>
+                        <div className="flex items-center gap-4 text-sm">
+                          <div className="flex items-center gap-1">
+                            <span className="text-blue-600">👍</span>
+                            <span className="text-gray-600">02</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <span className="text-yellow-500">👎</span>
+                            <span className="text-gray-600">01</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <span className="text-green-600">✓</span>
+                            <span className="text-gray-600">01</span>
+                          </div>
+                        </div>
+                      </div>
+                      <Button variant="ghost" size="icon" className="text-gray-400">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <circle cx="8" cy="4" r="1" fill="currentColor" />
+                          <circle cx="8" cy="8" r="1" fill="currentColor" />
+                          <circle cx="8" cy="12" r="1" fill="currentColor" />
+                        </svg>
+                      </Button>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2">
+                        <Image
+                          src="/professional-headshot.png"
+                          alt="Traveler"
+                          width={24}
+                          height={24}
+                          className="rounded-full"
+                        />
+                        <span className="text-sm text-gray-600">Emmett Hassan</span>
+                        <span className="text-xs text-gray-400">emmett.hassan@gmail.com</span>
+                      </div>
+                      <div className="flex -space-x-2">
+                        <Image
+                          src="/professional-man-headshot.png"
+                          alt="Traveler 2"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-headshot.png"
+                          alt="Traveler 3"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-man-headshot.png"
+                          alt="Traveler 4"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-headshot.png"
+                          alt="Traveler 5"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-man-headshot.png"
+                          alt="Traveler 6"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Dubai Trip Card */}
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <div className="flex">
+                  <div className="w-80 h-48">
+                    <Image
+                      src="/banner-2.jpg"
+                      alt="Dubai Trip"
+                      width={320}
+                      height={192}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="flex-1 p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Business</span>
+                          <span className="text-gray-500 text-sm">Trip ID: TRP920240455</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-gray-500 text-sm mb-3">
+                          <Calendar className="w-4 h-4" />
+                          <span>Jul 14 - Jul 18</span>
+                        </div>
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4">Dubai Trip</h3>
+                        <div className="flex items-center gap-4 text-sm">
+                          <div className="flex items-center gap-1">
+                            <span className="text-blue-600">👍</span>
+                            <span className="text-gray-600">02</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <span className="text-yellow-500">👎</span>
+                            <span className="text-gray-600">01</span>
+                          </div>
+                          <div className="flex items-center gap-1">
+                            <span className="text-green-600">✓</span>
+                            <span className="text-gray-600">01</span>
+                          </div>
+                        </div>
+                      </div>
+                      <Button variant="ghost" size="icon" className="text-gray-400">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                          <circle cx="8" cy="4" r="1" fill="currentColor" />
+                          <circle cx="8" cy="8" r="1" fill="currentColor" />
+                          <circle cx="8" cy="12" r="1" fill="currentColor" />
+                        </svg>
+                      </Button>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2">
+                        <Image
+                          src="/professional-headshot.png"
+                          alt="Traveler"
+                          width={24}
+                          height={24}
+                          className="rounded-full"
+                        />
+                        <span className="text-sm text-gray-600">Emmett Hassan</span>
+                        <span className="text-xs text-gray-400">emmett.hassan@gmail.com</span>
+                      </div>
+                      <div className="flex -space-x-2">
+                        <Image
+                          src="/professional-man-headshot.png"
+                          alt="Traveler 2"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-headshot.png"
+                          alt="Traveler 3"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-man-headshot.png"
+                          alt="Traveler 4"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-headshot.png"
+                          alt="Traveler 5"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                        <Image
+                          src="/professional-man-headshot.png"
+                          alt="Traveler 6"
+                          width={24}
+                          height={24}
+                          className="rounded-full border-2 border-white"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeTab === "canceled" && (
+          <div className="flex flex-col items-center justify-center min-h-[600px] px-6">
+            <div className="text-center">
+              <h2 className="text-2xl font-semibold text-[#18181a] mb-4 tracking-tight">No canceled trips</h2>
+              <p className="text-[#64748b] max-w-sm leading-relaxed text-base">
+                You don't have any canceled trips at the moment.
+              </p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
