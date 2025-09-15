@@ -3,15 +3,13 @@
 import SidebarTriggerClient from "@/components/SidebarTriggerClient";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
-import { NewTripSheet } from "@/components/sheet/NewTripSheet";
+import Link from "next/link";
 import { Notification } from "iconsax-reactjs";
 import Image from "next/image";
 import { Plane, Calendar, MapPin, Plus } from "lucide-react";
 import { useState } from "react";
 
 export default function TripBookingPage() {
-  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("upcoming");
 
   return (
@@ -57,17 +55,14 @@ export default function TripBookingPage() {
             </button>
           </div>
 
-          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-            <SheetTrigger asChild>
-              <Button className="bg-[#316db4] hover:bg-[#2563eb] text-white px-5 py-2.5 text-sm font-medium rounded-full">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2">
-                  <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                </svg>
-                New Trip
-              </Button>
-            </SheetTrigger>
-            <NewTripSheet onClose={() => setIsSheetOpen(false)} />
-          </Sheet>
+          <Link href="/create-trip">
+            <Button className="bg-[#316db4] hover:bg-[#2563eb] text-white px-5 py-2.5 text-sm font-medium rounded-full">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2">
+                <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              New Trip
+            </Button>
+          </Link>
       </div>
 
       {/* Filter Tabs */}
