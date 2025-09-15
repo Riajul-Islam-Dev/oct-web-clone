@@ -44,6 +44,16 @@ const items = [
     ),
   },
   {
+    title: "Trip & Booking",
+    url: "/trip-booking",
+    icon: () => (
+      <ElementPlus
+        style={{ width: iconSize, height: iconSize }}
+        color="#64748B"
+      />
+    ),
+  },
+  {
     title: "Manage Request",
     url: "#",
     icon: () => (
