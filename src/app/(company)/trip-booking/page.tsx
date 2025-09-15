@@ -93,16 +93,34 @@ export default function TripBookingPage() {
             >
               Past
             </button>
-            <button 
-              onClick={() => setActiveTab("canceled")}
-              className={`font-medium text-sm pb-3 ${
-                activeTab === "canceled" 
-                  ? "text-[#316db4] border-b-2 border-[#316db4]" 
-                  : "text-[#64748b] hover:text-[#316db4]"
-              }`}
-            >
-              Canceled
-            </button>
+            <div className="flex items-center gap-3">
+              <button 
+                onClick={() => setActiveTab("canceled")}
+                className={`font-medium text-sm pb-3 ${
+                  activeTab === "canceled" 
+                    ? "text-[#316db4] border-b-2 border-[#316db4]" 
+                    : "text-[#64748b] hover:text-[#316db4]"
+                }`}
+              >
+                Canceled
+              </button>
+              {activeTab === "canceled" && (
+                <div className="flex items-center gap-2 pb-3">
+                  <div className="flex items-center gap-2 px-3 py-1.5 border border-[#e2e8f0] rounded-lg bg-white">
+                    <span className="text-[#64748b] text-sm">All</span>
+                    <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                      <path d="M4 6l4 4 4-4" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <Button variant="ghost" size="icon" className="text-[#64748b] hover:bg-[#f1f5f9] h-8 w-8">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="2" />
+                      <path d="M13 13l-2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                  </Button>
+                </div>
+              )}
+            </div>
           </div>
 
           <div className="flex items-center gap-3">
