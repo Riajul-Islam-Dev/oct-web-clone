@@ -12,6 +12,7 @@ import { useState } from "react";
 
 export default function TripBookingPage() {
   const [activeTab, setActiveTab] = useState("upcoming");
+  const [isNewTripSheetOpen, setIsNewTripSheetOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#F8F9FA]">
@@ -56,7 +57,7 @@ export default function TripBookingPage() {
             </button>
           </div>
 
-          <Sheet>
+          <Sheet open={isNewTripSheetOpen} onOpenChange={setIsNewTripSheetOpen}>
             <SheetTrigger asChild>
               <Button className="bg-[#316db4] hover:bg-[#2563eb] text-white px-5 py-2.5 text-sm font-medium rounded-full">
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2">
@@ -65,7 +66,7 @@ export default function TripBookingPage() {
                 New Trip
               </Button>
             </SheetTrigger>
-            <NewTripSheet />
+            <NewTripSheet onClose={() => setIsNewTripSheetOpen(false)} />
           </Sheet>
       </div>
 
@@ -190,7 +191,7 @@ export default function TripBookingPage() {
               </p>
             </div>
 
-            <Sheet>
+            <Sheet open={isNewTripSheetOpen} onOpenChange={setIsNewTripSheetOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
@@ -200,7 +201,7 @@ export default function TripBookingPage() {
                   Add New Trip
                 </Button>
               </SheetTrigger>
-              <NewTripSheet />
+              <NewTripSheet onClose={() => setIsNewTripSheetOpen(false)} />
             </Sheet>
           </div>
         )}
