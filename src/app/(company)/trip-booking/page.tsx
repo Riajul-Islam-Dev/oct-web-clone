@@ -32,87 +32,108 @@ export default function TripBookingPage() {
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="px-6 py-6 bg-[#F8F9FA] min-h-screen">
-        {/* Tab Navigation */}
-        <div className="flex items-center justify-between mb-6 bg-white px-6 py-4 rounded-lg border border-gray-100">
-          <div className="flex gap-8">
-            <div className="flex items-center gap-2 text-gray-900 border-b-2 border-gray-900 pb-3">
-              <Plane size={18} />
-              <span className="font-medium text-base">Trips</span>
-            </div>
-            <div className="flex items-center gap-2 text-gray-400 pb-3">
-              <Calendar size={18} />
-              <span className="font-medium text-base">Bookings</span>
-            </div>
+      {/* Tab Navigation */}
+      <div className="flex items-center justify-between px-6 py-4 bg-[#ffffff]">
+          <div className="flex items-center gap-1">
+            <button className="flex items-center gap-2 px-4 py-2.5 bg-[#ebf5fa] text-[#316db4] rounded-lg font-medium text-sm">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M2 3h12l-1 10H3L2 3z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+                <path d="M6 7v4M10 7v4" stroke="currentColor" strokeWidth="1.5" />
+              </svg>
+              Trips
+            </button>
+            <button className="flex items-center gap-2 px-4 py-2.5 text-[#64748b] font-medium text-sm hover:bg-[#f8fafc] rounded-lg">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <rect x="2" y="3" width="12" height="2" fill="currentColor" />
+                <rect x="2" y="7" width="12" height="6" stroke="currentColor" strokeWidth="1.5" fill="none" />
+              </svg>
+              Bookings
+            </button>
           </div>
-          <Button className="bg-[#4F46E5] hover:bg-[#4338CA] text-white px-6 py-2.5 text-sm font-medium rounded-lg">
-            <Plus size={16} className="mr-2" />
+
+          <Button className="bg-[#316db4] hover:bg-[#2563eb] text-white px-5 py-2.5 text-sm font-medium rounded-full">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2">
+              <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
             New Trip
           </Button>
-        </div>
+      </div>
 
-        {/* Filter Tabs */}
-        <div className="flex items-center justify-between mb-6 bg-white px-6 py-4 rounded-lg border border-gray-100">
-          <div className="flex gap-8 items-center">
-            <button className="text-gray-900 border-b-2 border-gray-900 pb-3 font-medium text-base">
-              Upcoming
-            </button>
-            <button className="text-gray-400 pb-3 hover:text-gray-600 text-base">
-              Past
-            </button>
-            <button className="text-gray-400 pb-3 hover:text-gray-600 text-base">
-              Canceled
-            </button>
-            <div className="flex items-center gap-2 pb-3">
-              <select className="border border-gray-200 rounded-md px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-gray-300 text-gray-600">
-                <option>Business</option>
-                <option>Personal</option>
-              </select>
-            </div>
+      {/* Filter Tabs */}
+      <div className="flex items-center justify-between px-6 py-4 bg-[#ffffff] border-b border-[#e2e8f0]">
+          <div className="flex items-center gap-8">
+            <button className="text-[#316db4] font-medium text-sm border-b-2 border-[#316db4] pb-3">Upcoming</button>
+            <button className="text-[#64748b] font-medium text-sm pb-3 hover:text-[#316db4]">Past</button>
+            <button className="text-[#64748b] font-medium text-sm pb-3 hover:text-[#316db4]">Canceled</button>
           </div>
-          <div className="pb-3">
-            <Input 
-              placeholder="Search trips..."
-              className="w-64 h-10 text-sm border-gray-200 focus:ring-2 focus:ring-gray-300 bg-gray-50"
-            />
-          </div>
-        </div>
 
-        {/* Empty State */}
-        <div className="flex flex-col items-center justify-center py-20 bg-white rounded-lg border border-gray-100">
-          <div className="mb-8">
-            <div className="w-24 h-32 mx-auto mb-6">
-              <svg viewBox="0 0 96 128" className="w-full h-full text-gray-400">
-                {/* Suitcase body */}
-                <rect x="16" y="24" width="64" height="88" rx="6" fill="currentColor" stroke="currentColor" strokeWidth="2" />
-                {/* Suitcase handle */}
-                <rect x="40" y="8" width="16" height="20" rx="8" fill="none" stroke="currentColor" strokeWidth="3" />
-                {/* Suitcase wheels */}
-                <circle cx="28" cy="116" r="6" fill="currentColor" />
-                <circle cx="68" cy="116" r="6" fill="currentColor" />
-                {/* Suitcase details */}
-                <rect x="24" y="40" width="48" height="2" fill="white" opacity="0.3" />
-                <rect x="24" y="48" width="48" height="2" fill="white" opacity="0.3" />
-                <rect x="24" y="56" width="32" height="2" fill="white" opacity="0.3" />
-                {/* Handle on side */}
-                <rect x="12" y="60" width="4" height="16" rx="2" fill="currentColor" />
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 px-3 py-2 border border-[#e2e8f0] rounded-lg bg-white">
+              <span className="text-[#64748b] text-sm">Business</span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6l4 4 4-4" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
+            <Button variant="ghost" size="icon" className="text-[#64748b] hover:bg-[#f1f5f9]">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <circle cx="7" cy="7" r="5" stroke="currentColor" strokeWidth="2" />
+                <path d="M13 13l-2-2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </Button>
           </div>
-          
-          <h3 className="text-xl font-semibold text-gray-700 mb-3">
-            No trips scheduled
-          </h3>
-          <p className="text-gray-500 mb-8 text-center max-w-md leading-relaxed">
-            Add your first trip and let the journey begin. Your next adventure is just a click away
-          </p>
-          
-          <Button className="bg-[#F59E0B] hover:bg-[#D97706] text-white px-6 py-2.5 font-medium rounded-lg">
-            <Plus size={16} className="mr-2" />
-            Add New Trip
-          </Button>
-        </div>
+      </div>
+
+      {/* Main Content Area - Empty State */}
+      <div className="flex-1 bg-[#fafafa]">
+          <div className="flex flex-col items-center justify-center min-h-[600px] px-6">
+            <div className="mb-12">
+              <div className="relative">
+                {/* Suitcase body */}
+                <div className="w-36 h-44 bg-[#2a2b2f] rounded-lg relative shadow-lg">
+                  {/* Handle */}
+                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                    <div className="w-10 h-8 border-4 border-[#2a2b2f] rounded-t-xl bg-transparent"></div>
+                  </div>
+
+                  {/* Front panel border */}
+                  <div className="absolute top-6 left-6 right-6 bottom-6 border-2 border-[#4a4a4a] rounded-md"></div>
+
+                  {/* Horizontal zipper line */}
+                  <div className="absolute top-1/2 left-6 right-6 h-0.5 bg-[#4a4a4a] transform -translate-y-0.5"></div>
+
+                  {/* Corner rivets */}
+                  <div className="absolute top-4 left-4 w-2 h-2 bg-[#4a4a4a] rounded-full"></div>
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-[#4a4a4a] rounded-full"></div>
+                  <div className="absolute bottom-4 left-4 w-2 h-2 bg-[#4a4a4a] rounded-full"></div>
+                  <div className="absolute bottom-4 right-4 w-2 h-2 bg-[#4a4a4a] rounded-full"></div>
+
+                  {/* Lock/latch */}
+                  <div className="absolute top-1/2 right-2 w-3 h-4 bg-[#4a4a4a] rounded-sm transform -translate-y-1/2"></div>
+                </div>
+
+                {/* Wheels */}
+                <div className="absolute -bottom-3 left-8 w-5 h-5 bg-[#2a2b2f] rounded-full border-2 border-[#4a4a4a]"></div>
+                <div className="absolute -bottom-3 right-8 w-5 h-5 bg-[#2a2b2f] rounded-full border-2 border-[#4a4a4a]"></div>
+              </div>
+            </div>
+
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-semibold text-[#18181a] mb-4 tracking-tight">No trips scheduled</h2>
+              <p className="text-[#64748b] max-w-sm leading-relaxed text-base">
+                Add your first trip and let the journey begin. Your next adventure is just a click away
+              </p>
+            </div>
+
+            <Button
+              variant="outline"
+              className="bg-[#fdf6e9] border-[#fdf6e9] text-[#8e8e8e] hover:bg-[#fdf6e9]/90 px-6 py-2 text-sm font-medium"
+            >
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="mr-2">
+                <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+              Add New Trip
+            </Button>
+          </div>
       </div>
     </div>
   );
