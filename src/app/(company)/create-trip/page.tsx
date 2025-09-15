@@ -23,6 +23,7 @@ import {
   Plus,
   ExternalLink,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function CreateTripPage() {
   const [activeTab, setActiveTab] = useState("Round Trip");
@@ -343,13 +344,15 @@ export default function CreateTripPage() {
 
         {/* Add to Trip Button */}
         <div className="flex justify-center pt-4">
-          <Button
-            variant="outline"
-            className="border-[#1e88e5] text-[#1e88e5] hover:bg-[#1e88e5] hover:text-white bg-transparent"
-          >
-            <Plus className="w-4 h-4 mr-2" />
-            Add to Trip
-          </Button>
+          <Link href="/add-hotel">
+            <Button
+              variant="outline"
+              className="border-[#1e88e5] text-[#1e88e5] hover:bg-[#1e88e5] hover:text-white bg-transparent"
+            >
+              <Plus className="w-4 h-4 mr-2" />
+              Add to Trip
+            </Button>
+          </Link>
         </div>
       </div>
     </div>
