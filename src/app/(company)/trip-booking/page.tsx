@@ -186,13 +186,15 @@ export default function TripBookingPage() {
               </p>
             </div>
 
-            <Button
-              variant="outline"
-              className="bg-[#fdf6e9] border-[#fdf6e9] text-[#8e8e8e] hover:bg-[#fdf6e9]/90 px-6 py-2 text-sm font-medium"
-            >
-              <Plus className="mr-2 h-4 w-4" />
-              Add New Trip
-            </Button>
+            <Link href="/create-trip">
+              <Button
+                variant="outline"
+                className="bg-[#fdf6e9] border-[#fdf6e9] text-[#8e8e8e] hover:bg-[#fdf6e9]/90 px-6 py-2 text-sm font-medium"
+              >
+                <Plus className="mr-2 h-4 w-4" />
+                Add New Trip
+              </Button>
+            </Link>
           </div>
         )}
 
