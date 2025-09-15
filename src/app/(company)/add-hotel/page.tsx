@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -340,13 +341,15 @@ export default function AddHotelPage() {
 
           {/* Add to Trip Button */}
           <div className="flex justify-center pt-6">
-            <Button
-              variant="outline"
-              className="border-[#1e88e5] text-[#1e88e5] hover:bg-[#1e88e5] hover:text-white bg-transparent"
-            >
-              <Plus className="w-4 h-4 mr-2" />
-              Add to Trip
-            </Button>
+            <Link href="/add-car">
+              <Button
+                variant="outline"
+                className="border-[#1e88e5] text-[#1e88e5] hover:bg-[#1e88e5] hover:text-white bg-transparent"
+              >
+                <Plus className="w-4 h-4 mr-2" />
+                Add to Trip
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
