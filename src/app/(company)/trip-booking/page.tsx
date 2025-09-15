@@ -84,6 +84,16 @@ export default function TripBookingPage() {
               Upcoming
             </button>
             <button 
+              onClick={() => setActiveTab("new-upcoming")}
+              className={`font-medium text-sm pb-3 ${
+                activeTab === "new-upcoming" 
+                  ? "text-[#316db4] border-b-2 border-[#316db4]" 
+                  : "text-[#64748b] hover:text-[#316db4]"
+              }`}
+            >
+              New Upcoming
+            </button>
+            <button 
               onClick={() => setActiveTab("past")}
               className={`font-medium text-sm pb-3 ${
                 activeTab === "past" 
@@ -188,6 +198,208 @@ export default function TripBookingPage() {
               <Plus className="mr-2 h-4 w-4" />
               Add New Trip
             </Button>
+          </div>
+        )}
+
+        {activeTab === "new-upcoming" && (
+          <div className="p-6 space-y-4">
+            {/* Flight Booking Card */}
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="flex">
+                <div className="w-48 h-32">
+                  <Image
+                    src="/banner-1.jpg"
+                    alt="New York"
+                    width={192}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 p-4">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Business</span>
+                        <span className="text-sm text-gray-500">Trip ID: FPR202406455</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>Jul 14 - Jul 18</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">New York → Dubai</h3>
+                      <p className="text-sm text-gray-600">Business Class</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm text-gray-500 mb-1">Total Price</div>
+                      <div className="text-lg font-semibold text-gray-900 mb-1">$ 200.00</div>
+                      <div className="text-sm text-gray-500 mb-2">Reward</div>
+                      <div className="text-sm font-medium text-gray-700">15239845</div>
+                      <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200 text-xs px-3 py-1 mt-2">
+                        Booked
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Hotel Booking Card */}
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="flex">
+                <div className="w-48 h-32">
+                  <Image
+                    src="/banner-2.jpg"
+                    alt="Hotel"
+                    width={192}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 p-4">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Business</span>
+                        <span className="text-sm text-gray-500">Trip ID: FPR202406455</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>Jul 14 - Jul 18</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Seagull Hotel Ltd</h3>
+                      <p className="text-sm text-gray-600">Deluxe Queen</p>
+                    </div>
+                    <div className="text-right">
+                      <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200 text-xs px-3 py-1">
+                        New Request
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Car Rental Card */}
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="flex">
+                <div className="w-48 h-32">
+                  <Image
+                    src="/banner-3.jpg"
+                    alt="Car"
+                    width={192}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 p-4">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Business</span>
+                        <span className="text-sm text-gray-500">Trip ID: FPR202406455</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>Jul 14 - Jul 18</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Mirpur 10 → Dhanmondi</h3>
+                      <p className="text-sm text-gray-600">Car Prime</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-sm text-gray-500 mb-1">Total Price</div>
+                      <div className="text-lg font-semibold text-gray-900 mb-2">$ 200.00</div>
+                      <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200 text-xs px-3 py-1">
+                        Booked
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Car Rental Cards */}
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="flex">
+                <div className="w-48 h-32">
+                  <Image
+                    src="/banner-4.jpg"
+                    alt="Car"
+                    width={192}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 p-4">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Business</span>
+                        <span className="text-sm text-gray-500">Booking ID: FPR202406455</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>Jul 14 - Jul 18</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Dhaka → Cox's Bazar</h3>
+                      <p className="text-sm text-gray-600">Car Prime</p>
+                      <div className="flex items-center gap-2 mt-2">
+                        <div className="flex items-center gap-1">
+                          <span className="text-xs text-gray-500">Fahad Hossain</span>
+                          <span className="text-xs text-gray-400">fahad@example.com</span>
+                        </div>
+                        <div className="flex -space-x-1">
+                          <div className="w-6 h-6 rounded-full bg-blue-500 border-2 border-white"></div>
+                          <div className="w-6 h-6 rounded-full bg-green-500 border-2 border-white"></div>
+                          <div className="w-6 h-6 rounded-full bg-purple-500 border-2 border-white"></div>
+                          <div className="w-6 h-6 rounded-full bg-orange-500 border-2 border-white"></div>
+                          <div className="w-6 h-6 rounded-full bg-red-500 border-2 border-white"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200 text-xs px-3 py-1">
+                        New Request
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="flex">
+                <div className="w-48 h-32">
+                  <Image
+                    src="/banner-5.jpg"
+                    alt="Car"
+                    width={192}
+                    height={128}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1 p-4">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Business</span>
+                        <span className="text-sm text-gray-500">Booking ID: FPR202406455</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-sm text-gray-600 mb-1">
+                        <Calendar className="w-4 h-4" />
+                        <span>Jul 14 - Jul 18</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Dhaka → Cox's Bazar</h3>
+                      <p className="text-sm text-gray-600">First class</p>
+                    </div>
+                    <div className="text-right">
+                      <Button className="bg-orange-100 text-orange-600 hover:bg-orange-200 text-xs px-3 py-1">
+                        New Request
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
